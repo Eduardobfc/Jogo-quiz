@@ -1,0 +1,61 @@
+listaPerguntas = ['Onde posso realizar um teste rápido para saber se tenho HIV?', 'Como posso ser doador de órgãos?', 'Quais órgãos e tecidos podem ser doados?', 'O que é preciso para doar sangue?', 'O covid-19 pode matar?', 'Como se prevenir contra o covid-19?', 'Quanto tempo dura a recuperação da pessoa depois de pegar covid-19?', 'Qual desses tem mais ossos no corpo?', 'Qual a função do apêndice? ']
+
+listaOpcoes = {0: ['Os Testes Rápidos para HIV e sífilis estão disponíveis numa clínica online', 'Os Testes Rápidos para HIV e sífilis estão disponíveis nas Unidades Básicas de Saúde dos municípios gaúchos e nos Centros de Testagem e Aconselhamento.', 'Os Testes Rápidos para HIV e sífilis estão disponíveis através de uma ambulância que te atende na sua casa.'],
+               1: ['O transplante só acontece com a autorização de um familiar do doador. ', 'Pode ser autorizado por um médico', 'Somente e necessário o doador assinar um contrato de autorização para o transplante ser feito.'],
+               2: ['Cérebro, coração, ossos, unhas, cabelo e cílios', 'orelha, unhas, nariz, cera, coração e pulmão', 'Coração, pulmão, fígado, pâncreas, rim, córnea, ossos, músculos e pele.'],
+               3: ['Possuir mais de 60 anos de idade', 'Estar em boas condições de saúde', 'Em algum momento ter contraído HIV'],
+               4: ['O óbito pode ocorrer em virtude de complicações da infecção como por exemplo insuficiências respiratórias.', 'Não, nunca foram registrados casos de óbito por covid-19.', 'O óbito só acontece se a pessoa que contrair covid-19 não usar nenhum tipo de máscara de oxigênio '],
+               5: ['Comer coxinha todos os dias para aumentar sua imunidade.', 'Utilizando máscaras que cobrem o nariz e a boca e evitando contato próximo com outras pessoas.', 'Nadar em águas salgadas duas vezes por semana para matar o vírus.'],
+               6: ['31 dias', '14 dias', '30 dias'],
+               7: ['Idosos', 'Adolescentes', 'Bebês'],
+               8: ['Ajudam na regeneração de ossos quebrados ', 'Ele fábrica e armazena bactérias que auxiliam na digestão.', 'Limpa vasos vasculares que leva ao Coração']}
+
+listaRespostas = ['B', 'A', 'C', 'B', 'A', 'B', 'B', 'C', 'B']
+
+jogar = True
+while jogar == True:
+    print('')
+    print('-----------------------')
+    print('-    Quiz de Saúde    -')
+    print('-----------------------')
+    print('[1] Começar quiz')
+    print('[0] Sair')
+    menu = int(input('Escolha: '))
+    if menu == 1:
+        i = 0
+        pontuacao = 0
+        certas = []
+        while i < len(listaPerguntas):
+            print((i + 1), '- ' + listaPerguntas[i])
+            j = 0
+            while j < 3:
+                letra = ''
+                if j == 0:
+                    letra = '[A]'
+                elif j == 1:
+                    letra = '[B]'
+                else:
+                    letra = '[C]'
+                print(letra + ' ' + listaOpcoes[i][j])
+                j += 1
+            print('')
+            respUsuario = input('Resposta: ').capitalize()
+            if respUsuario == listaRespostas[i]:
+                pontuacao += 1
+                certas.append(i + 1)
+            print('')
+            i += 1
+        print('-----------------------')
+        print('-  Resultado do Quiz  -')
+        print('-----------------------')
+        mensagem = ''
+        if pontuacao >= 6:
+            mensagem = 'Parabens! Você passou!'
+        else:
+            mensagem = 'Que pena... Você perdeu'
+        print(mensagem)
+        print('Pontuação:', pontuacao)
+        print('Perguntas certas:', certas)
+    else:
+        jogar = False
+        print('Jogo encerrado')
